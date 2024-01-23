@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <div class="flex justify-center">
+        <div class="p-10">
+            <h1 class="text-3xl text-indigo-600">
+                Real Time 
+            </h1>
+            <div class="bg-indigo-600 w-5 h-1 rounded-full"></div>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <p class="text-indigo-600 text-6xl" id="realtime-clock"><%= currentTime %></p>
+    </div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const clockElement = document.getElementById('realtime-clock');
+      const currentTime = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Bangkok' });
+      clockElement.innerText = `${currentTime}`;
+    }
+
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
